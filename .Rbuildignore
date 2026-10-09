@@ -1,0 +1,13 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.DS_Store$
+^\.git$
+^\.github$
+^\.lintr$
+^air\.toml$
+^Makefile$
+^AGENTS\.md$
+^CLAUDE\.md$
+^README\.md$
+^.*\.BiocCheck$
+^make$

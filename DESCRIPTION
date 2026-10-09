@@ -1,0 +1,37 @@
+Package: prolfquatakeoutmissing
+Type: Package
+Title: Group-Mean Imputation Contrasts Taken Out of prolfqua
+Version: 0.1.0
+Authors@R:
+    person("Witold", "Wolski", , "wew@fgcz.ethz.ch",
+        role = c("aut", "cre"),
+        comment = c(ORCID = "0000-0002-6468-120X"))
+Description: Keeps the group-mean imputation contrasts ('ContrastsMissing')
+    and the 'lm_missing' contrast facade that were removed from prolfqua.
+    Loading the package registers 'lm_missing' in the prolfqua facade registry,
+    so 'prolfqua::build_contrast_analysis(..., method = "lm_missing")' works again.
+License: MIT + file LICENSE
+URL: https://github.com/prolfqua/prolfquatakeoutmissing
+BugReports: https://github.com/prolfqua/prolfquatakeoutmissing/issues
+Encoding: UTF-8
+Imports:
+    dplyr,
+    prolfqua,
+    R6,
+    rlang,
+    stats,
+    tibble,
+    tidyr
+Suggests:
+    covr,
+    cyclocomp,
+    devtools,
+    lintr,
+    rcmdcheck,
+    roxygen2,
+    testthat (>= 3.0.0)
+Remotes:
+    github::fgcz/prolfqua
+Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE, r6 = TRUE)
+RoxygenNote: 7.3.3
