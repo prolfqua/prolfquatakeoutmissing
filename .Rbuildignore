@@ -11,3 +11,4 @@
 ^README\.md$
 ^.*\.BiocCheck$
 ^make$
+^\.githooks$
