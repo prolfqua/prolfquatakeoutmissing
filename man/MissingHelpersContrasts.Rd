@@ -7,11 +7,6 @@
 An R6 class generator.
 }
 \description{
-Group-mean imputation and pooled-variance contrasts
-
-Group-mean imputation and pooled-variance contrasts
-}
-\details{
 Extends \code{\link[prolfqua]{MissingHelpers}} (statistics per group and the
 limit of detection) with the group-mean imputation and pooled-variance
 t-test used by \code{\link{ContrastsMissing}}. Group means are weighted by
@@ -45,145 +40,152 @@ mh$get_contrast_estimates(Contrasts)
 \code{\link[prolfqua:MissingHelpers]{prolfqua::MissingHelpers}} -> \code{MissingHelpersContrasts}
 }
 \section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{weighted}}{should we weight the LOD}
-}
-\if{html}{\out{</div>}}
+  \if{html}{\out{<div class="r6-fields">}}
+  \describe{
+    \item{\code{weighted}}{should we weight the LOD}
+  }
+  \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-MissingHelpersContrasts-new}{\code{MissingHelpersContrasts$new()}}
-\item \href{#method-MissingHelpersContrasts-impute_weighted_lod}{\code{MissingHelpersContrasts$impute_weighted_lod()}}
-\item \href{#method-MissingHelpersContrasts-impute_lod}{\code{MissingHelpersContrasts$impute_lod()}}
-\item \href{#method-MissingHelpersContrasts-get_poolvar}{\code{MissingHelpersContrasts$get_poolvar()}}
-\item \href{#method-MissingHelpersContrasts-get_contrast_estimates}{\code{MissingHelpersContrasts$get_contrast_estimates()}}
-\item \href{#method-MissingHelpersContrasts-get_contrasts}{\code{MissingHelpersContrasts$get_contrasts()}}
-\item \href{#method-MissingHelpersContrasts-clone}{\code{MissingHelpersContrasts$clone()}}
+  \itemize{
+    \item \href{#method-MissingHelpersContrasts-initialize}{\code{MissingHelpersContrasts$new()}}
+    \item \href{#method-MissingHelpersContrasts-impute_weighted_lod}{\code{MissingHelpersContrasts$impute_weighted_lod()}}
+    \item \href{#method-MissingHelpersContrasts-impute_lod}{\code{MissingHelpersContrasts$impute_lod()}}
+    \item \href{#method-MissingHelpersContrasts-get_poolvar}{\code{MissingHelpersContrasts$get_poolvar()}}
+    \item \href{#method-MissingHelpersContrasts-get_contrast_estimates}{\code{MissingHelpersContrasts$get_contrast_estimates()}}
+    \item \href{#method-MissingHelpersContrasts-get_contrasts}{\code{MissingHelpersContrasts$get_contrasts()}}
+    \item \href{#method-MissingHelpersContrasts-clone}{\code{MissingHelpersContrasts$clone()}}
+  }
 }
-}
-\if{html}{\out{
-<details open><summary>Inherited methods</summary>
+\if{html}{\out{<details open><summary>Inherited methods</summary>
 <ul>
-<li><span class="pkg-link" data-pkg="prolfqua" data-topic="MissingHelpers" data-id="get_lod"><a href='../../prolfqua/html/MissingHelpers.html#method-MissingHelpers-get_lod'><code>prolfqua::MissingHelpers$get_lod()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="prolfqua" data-topic="MissingHelpers" data-id="get_stats"><a href='../../prolfqua/html/MissingHelpers.html#method-MissingHelpers-get_stats'><code>prolfqua::MissingHelpers$get_stats()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="prolfqua" data-topic="MissingHelpers" data-id="get_lod"><a href='../../prolfqua/html/MissingHelpers.html#method-MissingHelpers-get_lod'><code>prolfqua::MissingHelpers$get_lod()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="prolfqua" data-topic="MissingHelpers" data-id="get_stats"><a href='../../prolfqua/html/MissingHelpers.html#method-MissingHelpers-get_stats'><code>prolfqua::MissingHelpers$get_stats()</code></a></span></li>
 </ul>
-</details>
-}}
+</details>}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-MissingHelpersContrasts-new"></a>}}
-\if{latex}{\out{\hypertarget{method-MissingHelpersContrasts-new}{}}}
-\subsection{Method \code{new()}}{
-initialize
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{MissingHelpersContrasts$new(data, config, prob = 0.5, weighted = TRUE)}\if{html}{\out{</div>}}
+\if{html}{\out{<a id="method-MissingHelpersContrasts-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-MissingHelpersContrasts-initialize}{}}}
+\subsection{\code{MissingHelpersContrasts$new()}}{
+  initialize
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{MissingHelpersContrasts$new(data, config, prob = 0.5, weighted = TRUE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{data}}{data}
+      \item{\code{config}}{config}
+      \item{\code{prob}}{default 0.5, median of groups with one observed value}
+      \item{\code{weighted}}{should group average be computed used weighting, default TRUE.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{data}}{data}
-
-\item{\code{config}}{config}
-
-\item{\code{prob}}{default 0.5, median of groups with one observed value}
-
-\item{\code{weighted}}{should group average be computed used weighting, default TRUE.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-MissingHelpersContrasts-impute_weighted_lod"></a>}}
 \if{latex}{\out{\hypertarget{method-MissingHelpersContrasts-impute_weighted_lod}{}}}
-\subsection{Method \code{impute_weighted_lod()}}{
-compute group averages using weighted lod
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{MissingHelpersContrasts$impute_weighted_lod()}\if{html}{\out{</div>}}
+\subsection{\code{MissingHelpersContrasts$impute_weighted_lod()}}{
+  compute group averages using weighted lod
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{MissingHelpersContrasts$impute_weighted_lod()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-MissingHelpersContrasts-impute_lod"></a>}}
 \if{latex}{\out{\hypertarget{method-MissingHelpersContrasts-impute_lod}{}}}
-\subsection{Method \code{impute_lod()}}{
-if group average absent substitute with LOD
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{MissingHelpersContrasts$impute_lod()}\if{html}{\out{</div>}}
+\subsection{\code{MissingHelpersContrasts$impute_lod()}}{
+  if group average absent substitute with LOD
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{MissingHelpersContrasts$impute_lod()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-MissingHelpersContrasts-get_poolvar"></a>}}
 \if{latex}{\out{\hypertarget{method-MissingHelpersContrasts-get_poolvar}{}}}
-\subsection{Method \code{get_poolvar()}}{
-compute pooled var per protein
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{MissingHelpersContrasts$get_poolvar(prob = 0.75)}\if{html}{\out{</div>}}
+\subsection{\code{MissingHelpersContrasts$get_poolvar()}}{
+  compute pooled var per protein
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{MissingHelpersContrasts$get_poolvar(prob = 0.75)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{prob}}{prob of sd from proteins where it can be computed}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{prob}}{prob of sd from proteins where it can be computed}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-MissingHelpersContrasts-get_contrast_estimates"></a>}}
 \if{latex}{\out{\hypertarget{method-MissingHelpersContrasts-get_contrast_estimates}{}}}
-\subsection{Method \code{get_contrast_estimates()}}{
-get contrast estimates
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{MissingHelpersContrasts$get_contrast_estimates(Contrasts)}\if{html}{\out{</div>}}
+\subsection{\code{MissingHelpersContrasts$get_contrast_estimates()}}{
+  get contrast estimates
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{MissingHelpersContrasts$get_contrast_estimates(Contrasts)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{Contrasts}}{named array with contrasts}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{Contrasts}}{named array with contrasts}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-MissingHelpersContrasts-get_contrasts"></a>}}
 \if{latex}{\out{\hypertarget{method-MissingHelpersContrasts-get_contrasts}{}}}
-\subsection{Method \code{get_contrasts()}}{
-compute contrasts
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{MissingHelpersContrasts$get_contrasts(Contrasts, confint = 0.95, all = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{MissingHelpersContrasts$get_contrasts()}}{
+  compute contrasts
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{MissingHelpersContrasts$get_contrasts(Contrasts, confint = 0.95, all = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{Contrasts}}{vector with contrasts}
+      \item{\code{confint}}{compute confint}
+      \item{\code{all}}{return all columns, default FALSE}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{Contrasts}}{vector with contrasts}
-
-\item{\code{confint}}{compute confint}
-
-\item{\code{all}}{return all columns, default FALSE}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-MissingHelpersContrasts-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-MissingHelpersContrasts-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{MissingHelpersContrasts$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{MissingHelpersContrasts$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{MissingHelpersContrasts$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }
