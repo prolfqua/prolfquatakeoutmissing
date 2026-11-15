@@ -1,7 +1,7 @@
 Package: prolfquatakeoutmissing
 Type: Package
 Title: Group-Mean Imputation Contrasts Taken Out of prolfqua
-Version: 0.1.0
+Version: 0.1.1
 Authors@R:
     person("Witold", "Wolski", , "wew@fgcz.ethz.ch",
         role = c("aut", "cre"),

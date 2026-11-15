@@ -5,7 +5,7 @@ NULL
   prolfqua::register_facade(
     "lm_missing",
     class = "ContrastsLMMissingFacade",
-    needs = "same",
+    needs = "aggregated",
     package = "prolfquatakeoutmissing"
   )
   invisible()
