@@ -13,7 +13,7 @@
 #' @return An R6 class generator.
 #' @export
 #' @examples
-#' istar <- prolfqua::sim_lfq_data_protein_config(Nprot = 30)
+#' istar <- prolfqua::sim_lfq_data_protein_config(n_proteins = 30)
 #' lfqdata <- prolfqua::LFQData$new(istar$data, istar$config)
 #' lfqdata$rename_response("transformedIntensity")
 #' contrasts <- c("A_vs_Ctrl" = "group_A - group_Ctrl")

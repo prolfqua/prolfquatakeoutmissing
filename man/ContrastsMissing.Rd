@@ -20,7 +20,7 @@ offers \code{\link[prolfqua]{build_model_impute}} and the \code{lm_impute}
 facade, which refit failed proteins with LOD-imputed values.
 }
 \examples{
-istar <- prolfqua::sim_lfq_data_protein_config(Nprot = 120, weight_missing = .4)
+istar <- prolfqua::sim_lfq_data_protein_config(n_proteins = 120, weight_missing = .4)
 lProt <- prolfqua::LFQData$new(istar$data, istar$config)
 lProt$rename_response("transformedIntensity")
 
@@ -34,7 +34,7 @@ stopifnot(sum(is.na(res$p.value)) == 0)
 csi$column_description()
 p <- csi$get_Plotter()$volcano()
 
-dd <- prolfqua::sim_lfq_data_2factor_config(Nprot = 100, weight_missing = 0.1)
+dd <- prolfqua::sim_lfq_data_2factor_config(n_proteins = 100, weight_missing = 0.1)
 Contrasts <- c("c1" = "TreatmentA - TreatmentB",
                "C2" = "BackgroundX- BackgroundZ",
                "c3" = "`TreatmentA:BackgroundX` - `TreatmentA:BackgroundZ`",

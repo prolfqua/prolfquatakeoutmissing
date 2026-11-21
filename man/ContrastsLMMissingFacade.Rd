@@ -18,7 +18,7 @@ Registered as \code{method = "lm_missing"} for
 \code{\link[prolfqua]{build_contrast_analysis}} when the package is loaded.
 }
 \examples{
-istar <- prolfqua::sim_lfq_data_protein_config(Nprot = 30)
+istar <- prolfqua::sim_lfq_data_protein_config(n_proteins = 30)
 lfqdata <- prolfqua::LFQData$new(istar$data, istar$config)
 lfqdata$rename_response("transformedIntensity")
 contrasts <- c("A_vs_Ctrl" = "group_A - group_Ctrl")

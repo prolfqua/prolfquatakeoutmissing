@@ -9,7 +9,7 @@
 #' @export
 #' @examples
 #' Contrasts <- c("group.b-a" = "group_A - group_B", "group.a-ctrl" = "group_A - group_Ctrl")
-#' dd <- prolfqua::sim_lfq_data_protein_config(Nprot = 100, weight_missing = 2)
+#' dd <- prolfqua::sim_lfq_data_protein_config(n_proteins = 100, weight_missing = 2)
 #' mh <- MissingHelpersContrasts$new(dd$data, dd$config, prob = 0.8, weighted = TRUE)
 #' xx <- mh$get_stats()
 #' xx <- mh$get_lod()
@@ -19,7 +19,7 @@
 #' bb <- mh$get_contrast_estimates(Contrasts)
 #' mh$get_contrasts(Contrasts)
 #'
-#' dd <- prolfqua::sim_lfq_data_2factor_config(Nprot = 100, weight_missing = 0.1)
+#' dd <- prolfqua::sim_lfq_data_2factor_config(n_proteins = 100, weight_missing = 0.1)
 #'
 #' Contrasts <- c("c1" = "TreatmentA - TreatmentB",
 #'                "C2" = "BackgroundX- BackgroundZ",

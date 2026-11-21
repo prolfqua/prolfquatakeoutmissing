@@ -16,7 +16,7 @@ BugReports: https://github.com/prolfqua/prolfquatakeoutmissing/issues
 Encoding: UTF-8
 Imports:
     dplyr,
-    prolfqua,
+    prolfqua (>= 1.9.5),
     R6,
     rlang,
     stats,

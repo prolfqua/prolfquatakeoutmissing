@@ -1,5 +1,5 @@
 make_protein_lfqdata <- function(Nprot = 30, weight_missing = 0.2, seed = 42) {
-  istar <- prolfqua::sim_lfq_data_protein_config(Nprot = Nprot, weight_missing = weight_missing, seed = seed)
+  istar <- prolfqua::sim_lfq_data_protein_config(n_proteins = Nprot, weight_missing = weight_missing, seed = seed)
   lfqdata <- prolfqua::LFQData$new(istar$data, istar$config)
   lfqdata$rename_response("transformedIntensity")
   lfqdata
@@ -9,7 +9,7 @@ CONTRASTS <- c("A_vs_Ctrl" = "group_A - group_Ctrl")
 MODELSTR <- "~ group_"
 
 test_that("MissingHelpersContrasts computes imputed contrasts", {
-  dd <- prolfqua::sim_lfq_data_protein_config(Nprot = 100, weight_missing = 2)
+  dd <- prolfqua::sim_lfq_data_protein_config(n_proteins = 100, weight_missing = 2)
   mh <- MissingHelpersContrasts$new(dd$data, dd$config, prob = 0.8, weighted = TRUE)
   expect_true(is.numeric(mh$get_lod()))
   expect_true("meanAbundanceImp" %in% colnames(mh$impute_weighted_lod()))
@@ -35,7 +35,7 @@ test_that("ContrastsMissing", {
 })
 
 test_that("ContrastsMissing refuses non-aggregated data", {
-  istar <- prolfqua::sim_lfq_data_peptide_config(Nprot = 10, seed = 42)
+  istar <- prolfqua::sim_lfq_data_peptide_config(n_proteins = 10, seed = 42)
   lpep <- prolfqua::LFQData$new(istar$data, istar$config)
   expect_error(ContrastsMissing$new(lpep, contrasts = CONTRASTS)$get_contrasts(), "aggregated")
 })
@@ -70,13 +70,13 @@ test_that("loading the package registers lm_missing for build_contrast_analysis"
 })
 
 test_that("ContrastsLMMissingFacade requires aggregated data", {
-  istar <- prolfqua::sim_lfq_data_peptide_config(Nprot = 10, seed = 42)
+  istar <- prolfqua::sim_lfq_data_peptide_config(n_proteins = 10, seed = 42)
   lpep <- prolfqua::LFQData$new(istar$data, istar$config)
   expect_error(ContrastsLMMissingFacade$new(lpep, MODELSTR, CONTRASTS), "requires aggregated LFQData")
 })
 
 test_that("lm_missing leaves fewer proteins missing than lm", {
-  istar <- prolfqua::sim_lfq_data_peptide_config(Nprot = 80, seed = 42)
+  istar <- prolfqua::sim_lfq_data_peptide_config(n_proteins = 80, seed = 42)
   lfq_peptide <- prolfqua::LFQData$new(istar$data, istar$config)
   lfq_peptide <- lfq_peptide$get_Transformer()$log2()$lfq
   lfq_protein <- prolfqua::AggregateMedpolish$new(lfq_peptide, "protein")$aggregate()
