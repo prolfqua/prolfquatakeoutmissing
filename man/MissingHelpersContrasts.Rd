@@ -14,7 +14,7 @@ the LOD: \eqn{(LOD \cdot nrNAs + meanAbundance \cdot nrMeasured) / nrReplicates}
 }
 \examples{
 Contrasts <- c("group.b-a" = "group_A - group_B", "group.a-ctrl" = "group_A - group_Ctrl")
-dd <- prolfqua::sim_lfq_data_protein_config(n_proteins = 100, weight_missing = 2)
+dd <- prolfqua::sim_lfq_data_protein_config(n_proteins = 100, weight_missing = 1)
 mh <- MissingHelpersContrasts$new(dd$data, dd$config, prob = 0.8, weighted = TRUE)
 xx <- mh$get_stats()
 xx <- mh$get_lod()

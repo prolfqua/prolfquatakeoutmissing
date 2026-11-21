@@ -9,7 +9,7 @@ CONTRASTS <- c("A_vs_Ctrl" = "group_A - group_Ctrl")
 MODELSTR <- "~ group_"
 
 test_that("MissingHelpersContrasts computes imputed contrasts", {
-  dd <- prolfqua::sim_lfq_data_protein_config(n_proteins = 100, weight_missing = 2)
+  dd <- prolfqua::sim_lfq_data_protein_config(n_proteins = 100, weight_missing = 1)
   mh <- MissingHelpersContrasts$new(dd$data, dd$config, prob = 0.8, weighted = TRUE)
   expect_true(is.numeric(mh$get_lod()))
   expect_true("meanAbundanceImp" %in% colnames(mh$impute_weighted_lod()))
