@@ -1,5 +1,6 @@
 # prolfquatakeoutmissing 0.1.1
 
+* `ContrastsLMMissingFacade$new()` (`method = "lm_missing"`) takes `weights` and no further arguments, like prolfqua's `lm` facade; an argument it does not take is an error instead of being passed to `prolfqua::strategy_lm()`.
 * Computes the contrasts of group means and the pooled variances with its own copies of `get_contrast()` and `poolvar()`, which prolfqua 1.9.5 deprecates.
 * Requires prolfqua >= 1.9.5; examples and tests use its renamed simulator argument `n_proteins`.
 * `lm_missing` registers with `needs = "aggregated"`, the name prolfqua 1.9.1 uses for facades on aggregated input; prolfqua 1.9.1 no longer accepts `"same"`. Earlier prolfqua versions treat both values alike.

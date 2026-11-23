@@ -66,8 +66,7 @@ fa <- prolfqua::build_contrast_analysis(lfqdata, "~ group_", contrasts, method =
   lfqdata,
   modelstr,
   contrasts,
-  weights = lfqdata$nr_children_col(),
-  ...
+  weights = lfqdata$nr_children_col()
 )}
     \if{html}{\out{</div>}}
   }
@@ -79,7 +78,6 @@ fa <- prolfqua::build_contrast_analysis(lfqdata, "~ group_", contrasts, method =
       \item{\code{contrasts}}{named character vector of contrasts}
       \item{\code{weights}}{column name for per-observation weights (default:
 \code{lfqdata$nr_children_col()}). Pass \code{NULL} for unweighted.}
-      \item{\code{...}}{passed to \code{\link[prolfqua]{strategy_lm}}}
     }
     \if{html}{\out{</div>}}
   }

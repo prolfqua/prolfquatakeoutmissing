@@ -62,6 +62,14 @@ test_that("ContrastsLMMissingFacade initialises and returns correct structure", 
   expect_true(all(fa$get_contrasts()$modelName == "lm_missing"))
 })
 
+test_that("ContrastsLMMissingFacade names its arguments instead of taking ...", {
+  expect_false("..." %in% names(formals(ContrastsLMMissingFacade$public_methods$initialize)))
+  expect_error(
+    prolfqua::build_contrast_analysis(make_protein_lfqdata(), MODELSTR, CONTRASTS, method = "lm_missing", trend = TRUE),
+    "unused argument"
+  )
+})
+
 test_that("loading the package registers lm_missing for build_contrast_analysis", {
   entry <- prolfqua::lookup_facade("lm_missing")
   expect_equal(entry$package, "prolfquatakeoutmissing")

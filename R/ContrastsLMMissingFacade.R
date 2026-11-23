@@ -32,10 +32,9 @@ ContrastsLMMissingFacade <- R6::R6Class(
     #' @param contrasts named character vector of contrasts
     #' @param weights column name for per-observation weights (default:
     #'   \code{lfqdata$nr_children_col()}). Pass \code{NULL} for unweighted.
-    #' @param ... passed to \code{\link[prolfqua]{strategy_lm}}
-    initialize = function(lfqdata, modelstr, contrasts, weights = lfqdata$nr_children_col(), ...) {
+    initialize = function(lfqdata, modelstr, contrasts, weights = lfqdata$nr_children_col()) {
       full_formula <- private$.setup(lfqdata, contrasts, "lm_missing", modelstr)
-      strat <- prolfqua::strategy_lm(full_formula, weights = weights, ...)
+      strat <- prolfqua::strategy_lm(full_formula, weights = weights)
       self$model <- prolfqua::build_model(lfqdata, strat)
       base_contrast <- prolfqua::ContrastsModerated$new(prolfqua::Contrasts$new(self$model, contrasts))
       missing_contrast <- ContrastsMissing$new(lfqdata, contrasts = contrasts)
