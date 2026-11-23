@@ -72,7 +72,7 @@ MissingHelpersContrasts <- R6::R6Class(
     #' @param prob prob of sd from proteins where it can be computed
     get_poolvar = function(prob = 0.75) {
       imputed_data <- private$.imputed()
-      pooled <- prolfqua::poolvar(imputed_data, self$config)
+      pooled <- .poolvar(imputed_data, self$config)
       pooled <- dplyr::select(pooled, -dplyr::all_of(c(self$config$factor_keys_depth()[1], "var")))
 
       pooled_zero <- pooled[pooled$df > 0 & pooled$sd > 0, ]
@@ -108,7 +108,7 @@ MissingHelpersContrasts <- R6::R6Class(
           names_from = "interaction",
           values_from = dplyr::all_of(values_from)
         )
-        prolfqua::get_contrast(dplyr::ungroup(wide), hierarchy_keys, Contrasts)
+        .get_contrast(dplyr::ungroup(wide), hierarchy_keys, Contrasts)
       }
 
       imputed <- contrast_of("meanAbundanceImp")
