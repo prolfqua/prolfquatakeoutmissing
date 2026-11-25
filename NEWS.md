@@ -1,5 +1,6 @@
 # prolfquatakeoutmissing 0.1.1
 
+* `lm_missing` weights by the child count times the identification confidence, like prolfqua 1.9.11's `lm` facade; with confidence 1 the results are unchanged.
 * `ContrastsLMMissingFacade$new()` (`method = "lm_missing"`) takes `weights` and no further arguments, like prolfqua's `lm` facade; an argument it does not take is an error instead of being passed to `prolfqua::strategy_lm()`.
 * Computes the contrasts of group means and the pooled variances with its own copies of `get_contrast()` and `poolvar()`, which prolfqua 1.9.5 deprecates.
 * Requires prolfqua >= 1.9.5; examples and tests use its renamed simulator argument `n_proteins`.

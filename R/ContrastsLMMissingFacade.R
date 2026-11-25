@@ -30,9 +30,14 @@ ContrastsLMMissingFacade <- R6::R6Class(
     #' @param lfqdata LFQData object
     #' @param modelstr model formula string (e.g. "~ group_")
     #' @param contrasts named character vector of contrasts
-    #' @param weights column name for per-observation weights (default:
-    #'   \code{lfqdata$nr_children_col()}). Pass \code{NULL} for unweighted.
-    initialize = function(lfqdata, modelstr, contrasts, weights = lfqdata$nr_children_col()) {
+    #' @param weights column names whose product gives the per-observation weights (default: the child count
+    #'   times the identification confidence, like prolfqua's \code{lm} facade). Pass \code{NULL} for unweighted.
+    initialize = function(
+      lfqdata,
+      modelstr,
+      contrasts,
+      weights = c(lfqdata$nr_children_col(), lfqdata$get_config()$identification_confidence)
+    ) {
       full_formula <- private$.setup(lfqdata, contrasts, "lm_missing", modelstr)
       strat <- prolfqua::strategy_lm(full_formula, weights = weights)
       self$model <- prolfqua::build_model(lfqdata, strat)
